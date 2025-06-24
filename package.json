@@ -1,0 +1,27 @@
+{
+  "name": "youtube-video-looper",
+  "version": "1.0.0",
+  "description": "A modern web application for looping YouTube video sections with precise control and repetition tracking",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js",
+    "build": "echo 'No build step required for this static application'"
+  },
+  "keywords": [
+    "youtube",
+    "video",
+    "loop",
+    "player",
+    "web-app"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": ">=14.0.0"
+  }
+} 

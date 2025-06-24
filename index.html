@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Video Looper</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎬 YouTube Video Looper</h1>
+            <p>Loop any section of a YouTube video with ease</p>
+        </header>
+
+        <div class="main-content">
+            <!-- URL Input Section -->
+            <div class="input-section">
+                <div class="url-input-group">
+                    <label for="videoUrl">YouTube Video URL:</label>
+                    <div class="url-input-container">
+                        <input type="url" id="videoUrl" placeholder="https://www.youtube.com/watch?v=..." />
+                        <button id="loadVideo" class="btn btn-primary">Load Video</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video Player Section -->
+            <div class="video-section" id="videoSection" style="display: none;">
+                <div class="video-container">
+                    <div id="player"></div>
+                </div>
+
+                <!-- Loop Controls -->
+                <div class="loop-controls">
+                    <div class="loop-settings">
+                        <h3>Loop Settings</h3>
+                        <div class="time-inputs">
+                            <div class="time-input-group">
+                                <label for="startTime">Start Time (seconds):</label>
+                                <input type="number" id="startTime" min="0" step="0.1" value="0" />
+                            </div>
+                            <div class="time-input-group">
+                                <label for="endTime">End Time (seconds):</label>
+                                <input type="number" id="endTime" min="0" step="0.1" value="10" />
+                            </div>
+                        </div>
+                        <div class="loop-actions">
+                            <button id="setLoop" class="btn btn-secondary">Set Loop Points</button>
+                            <button id="startLoop" class="btn btn-success">Start Looping</button>
+                            <button id="stopLoop" class="btn btn-danger">Stop Looping</button>
+                        </div>
+                    </div>
+
+                    <!-- Loop Counter -->
+                    <div class="loop-counter">
+                        <h3>Loop Counter</h3>
+                        <div class="counter-display">
+                            <span id="loopCount">0</span>
+                            <span class="counter-label">repetitions</span>
+                        </div>
+                        <button id="resetCounter" class="btn btn-outline">Reset Counter</button>
+                    </div>
+                </div>
+
+                <!-- Video Info -->
+                <div class="video-info">
+                    <div class="current-time">
+                        <span>Current Time: </span>
+                        <span id="currentTime">0:00</span>
+                    </div>
+                    <div class="duration">
+                        <span>Duration: </span>
+                        <span id="duration">0:00</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Instructions -->
+            <div class="instructions">
+                <h3>How to use:</h3>
+                <ol>
+                    <li>Paste a YouTube video URL and click "Load Video"</li>
+                    <li>Set your desired start and end times for the loop</li>
+                    <li>Click "Set Loop Points" to confirm your selection</li>
+                    <li>Click "Start Looping" to begin the repetition</li>
+                    <li>Watch the counter track how many times the section has repeated</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
