@@ -2,7 +2,7 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 const mimeTypes = {
     '.html': 'text/html',
@@ -60,4 +60,17 @@ server.listen(PORT, () => {
     console.log(`   • Track repetition count in real-time`);
     console.log(`   • Modern, responsive interface`);
     console.log(`   • Keyboard shortcuts (Spacebar, L key)`);
+}).on('error', (err) => {
+    if (err.code === 'EADDRINUSE') {
+        console.log(`❌ Port ${PORT} is already in use.`);
+        console.log(`💡 Try these solutions:`);
+        console.log(`   1. Kill the process using port ${PORT}:`);
+        console.log(`      Windows: netstat -ano | findstr :${PORT}`);
+        console.log(`      Mac/Linux: lsof -i :${PORT}`);
+        console.log(`   2. Or use a different port: PORT=3002 npm run dev`);
+        console.log(`   3. Or restart your terminal/command prompt`);
+    } else {
+        console.error('Server error:', err);
+    }
+    process.exit(1);
 }); 
