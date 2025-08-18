@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
   // Enable static exports for deployment
   output: 'export',
   trailingSlash: true,

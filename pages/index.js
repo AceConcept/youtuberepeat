@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 
@@ -82,7 +82,7 @@ export default function Home() {
     return () => {
       clearTimeout(fallbackTimeout);
     };
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Create YouTube player
   const createPlayer = () => {
@@ -363,7 +363,7 @@ export default function Home() {
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
     };
-  }, [isLooping, loopStart, loopEnd]);
+  }, [isLooping]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Cleanup on unmount
   useEffect(() => {
@@ -510,10 +510,10 @@ export default function Home() {
           <div className={styles.instructions}>
             <h3>How to use:</h3>
             <ol>
-              <li>Paste a YouTube video URL and click "Load Video"</li>
+              <li>Paste a YouTube video URL and click &quot;Load Video&quot;</li>
               <li>Set your desired start and end times for the loop</li>
-              <li>Click "Set Loop Points" to confirm your selection</li>
-              <li>Click "Start Looping" to begin the repetition</li>
+              <li>Click &quot;Set Loop Points&quot; to confirm your selection</li>
+              <li>Click &quot;Start Looping&quot; to begin the repetition</li>
               <li>Watch the counter track how many times the section has repeated</li>
             </ol>
           </div>
